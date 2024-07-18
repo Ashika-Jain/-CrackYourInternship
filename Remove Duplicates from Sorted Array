@@ -1,0 +1,28 @@
+class Solution {
+public:
+    int removeDuplicates(vector<int>& nums) {
+        unordered_map<int,int>mpp;
+        int count = 0;
+        int pointer1 = 0;
+        int pointer2 = 0; 
+        int curr=0;
+        if(nums.size() == 0 || nums.size() == 1){
+            return nums.size();
+        }
+       while(pointer2 <nums.size()){
+            while(nums[pointer1] == nums[pointer2] && pointer2 < nums.size()){
+                
+                pointer2++;
+                if(pointer2 >= nums.size()) break;
+            }
+            if(pointer2 >= nums.size()) break;
+            if(pointer1 == nums.size()-1) break;
+            curr++;
+            nums[curr] = nums[pointer2];
+            pointer1 = pointer2;
+            
+       }
+       cout << curr;
+     return curr+1;
+    }
+};
