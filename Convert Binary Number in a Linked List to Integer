@@ -1,0 +1,20 @@
+class Solution {
+public:
+    int getDecimalValue(ListNode* head) {
+        int sum = 0;
+        ListNode* temp = head;
+        int len = 0;
+        while(temp){
+            temp = temp->next;
+            len++;
+        }
+        len -- ;
+        temp =head;
+        while(len>=0){
+            sum += temp->val * pow(2,len);
+            temp = temp->next;
+            len--;
+        }
+        return sum;
+    }
+};
