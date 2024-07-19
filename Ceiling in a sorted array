@@ -1,0 +1,12 @@
+int floor = -1;
+for(int i=0 ;i<nums.size(); i++){
+    if(nums[i]<k && nums[i] > floor){
+        floor = nums[i];
+    }
+}
+int ceil = -1;
+for(int i=0; i<nums.size();i++){
+    if(nums[i]>k && nums[i] < ceil){
+        ceil = nums[i];
+    }
+}
