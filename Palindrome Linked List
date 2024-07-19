@@ -1,0 +1,24 @@
+class Solution {
+public:
+    bool isPalindrome(ListNode* head) {
+        vector<int> stack ;
+        ListNode* temp= head;
+        while(temp){
+            stack.push_back( temp->val); 
+            temp= temp->next;
+            
+        }
+        
+        int p1 = 0;
+        int p2 = stack.size()-1;
+        while(p2>p1){
+            if(stack[p1]!= stack[p2]){
+                return false;;
+            }else{
+                p2--;
+                p1++;
+            }
+        }
+        return true;
+    }
+};
