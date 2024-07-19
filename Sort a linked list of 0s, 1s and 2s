@@ -1,0 +1,29 @@
+class Solution
+{
+    public:
+    //Function to sort a linked list of 0s, 1s and 2s.
+    Node* segregate(Node *head) {
+        if(head == NULL) return NULL;
+        Node* temp = head;
+        int len = 0;
+        map< int ,int> mpp;
+        while(temp){
+            mpp[temp->data]++;
+            temp= temp->next;
+            len ++;
+        }
+        temp = head;
+        for(auto it: mpp){
+            int store = it.second;
+            while(store){
+                temp->data = it.first;
+                temp = temp->next;
+                store--;
+            }
+        }
+        return head;
+        
+        // Add code here
+        
+    }
+};
