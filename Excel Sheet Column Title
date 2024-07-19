@@ -1,0 +1,38 @@
+class Solution {
+public:
+    string convertToTitle(int columnNumber) {
+        string res = "";
+        int mod ;
+        int rem ;
+        string str = "";
+            if(columnNumber <= 26){ str = char(64 + columnNumber);
+            return str;} 
+            
+            mod = columnNumber % 26;
+            if(mod == 0){ str = "Z";
+            rem = columnNumber / 26 - 1;}
+            else{
+            str = char(64 + mod);
+            
+            rem = columnNumber / 26;}
+            res.insert(0,str);
+            str.clear();
+            while(rem > 26){
+                mod = rem % 26;
+                if(mod == 0){
+                    str = "Z";
+                   rem = rem/26 - 1;
+                }
+                else{
+                str =  char(64 + mod);
+                rem = rem / 26;
+              }
+                res.insert(0, str);
+                str.clear();
+            }
+            str = char(64 +rem);
+            res.insert(0,str);
+            
+        return res;
+    }
+};
