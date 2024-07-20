@@ -1,0 +1,47 @@
+class Solution
+{
+    public:
+    Node *compute(Node *head)
+    {
+       Node* temp = head;
+       Node* prev = NULL;
+       Node* move = NULL;
+       int flag = 0;
+       while(temp){
+           move = temp->next;
+           flag = 0;
+           while(move){
+               if(move->data > temp->data){
+                   if(temp == head){
+                       head = head->next;
+                       
+                   }
+                   else{
+                       prev->next = temp->next;
+                        
+                       
+                   }
+                   flag =1;
+                   break;
+               }
+               else{
+                   move = move->next;
+                   
+               }
+           }
+           if(flag ==0){
+               prev = temp;
+               temp = temp->next;
+           }
+           else{
+               temp = temp->next;
+           }
+           
+           
+           
+       }
+       return head;
+        
+    }
+    
+};
