@@ -1,0 +1,22 @@
+class Solution {
+public:
+    bool hasPathSum(TreeNode* root, int targetSum) {
+       if(root == NULL) return false;
+        int sum=0;
+        return dfs(root,targetSum, sum);
+    }
+    bool dfs(TreeNode* root, int tar, int sum){
+        if(root== NULL){
+           return false;
+        }
+        sum = sum + root->val;
+        if(root->left == NULL && root->right == NULL){
+          if(sum == tar)  {
+            return true;
+          }
+          
+        }
+        return dfs(root->left,tar,sum) || dfs(root->right,tar,sum);
+
+    }
+};
