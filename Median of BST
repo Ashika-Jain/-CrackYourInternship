@@ -1,0 +1,18 @@
+void helper(struct Node *root,vector<int>& res){
+    if(root == NULL) return ;
+    
+    
+    helper(root->left, res);
+    res.push_back(root->data);
+    helper(root->right , res);
+    
+}
+float findMedian(struct Node *root)
+{   vector<int> res;
+    helper(root,res);
+    int n = res.size();
+    if(n %2 == 0){
+        return (res[n/2-1] + res[n/2])/2.0;
+    }
+    return res[n/2];
+}
